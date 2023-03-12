@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Rock Paper Scissor</title>
+  </head>
+  <body>
+    <h1>Hi {{name}} !!!</h1>
+    <h1>You are playing Rock Paper Scissor with the Computer</h1>
+    <p>You played: {{ player_choice }}</p>
+    <p>The computer played: {{ computer_choice }}</p>
+    {% if outcome == 'win' %}
+      <p>Congratulations, you won!</p>
+    {% elif outcome == 'lose' %}
+      <p>Sorry, you lost.</p>
+    {% else %}
+      <p>It's a tie.</p>
+    {% endif %}
+    <h3>Your score {{user_score}} Vs Computer Score {{computer_score}}</h3>
+    <form method="post">
+        {% csrf_token %}
+        <label for="choice">Choose your Choice</label>
+        <select name="choice">
+            <option value="rock">Rock</option>
+            <option value="paper">Paper</option>
+            <option value="scissor">Scissor</option>
+        </select>
+        <button type="submit">Play</button>
+    </form>
+  </body>
+</html>
